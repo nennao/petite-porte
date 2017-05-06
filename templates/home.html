@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+    <div id="home-fullscreen">
+        <div id="fs-content">
+            <h1>Full Stack Development</h1>
+            <div class="fs-items row">
+                <div class="fs-cell col-xs-6 col-sm-3">front end
+                <span class="vpipe">|</span></div>
+                <div class="fs-cell col-xs-6 col-sm-3">back end
+                <span class="vpipe">|</span></div>
+                <div class="fs-cell col-xs-6 col-sm-3">UX/UI
+                <span class="vpipe">|</span></div>
+                <div class="fs-cell col-xs-6 col-sm-3">back end
+                <span class="vpipe">|</span></div>
+                <div class="fs-cell col-xs-6 col-sm-3">frameworks</div>
+            </div>
+        </div>
+        <div id="scroll-skills">
+            Proficiencies <i class="fa fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <div id="mySkills" class="container">
+        <h2>Technical Skills</h2>
+        <div class="sk-items row">
+            {% for skill in skills %}
+               <div class="sk-cell col-xs-6 col-sm-4">
+                   <img src="/media/graphics/skill{{ skill.i }}.png"> {{ skill.name }}
+               </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="hpipe"></div>
+
+    <div class="container home-buttons">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 home-button">
+               <a href="/portfolio" class="btn btn-default btn-lg">view portfolio</a>
+            </div>
+            <div class="col-xs-12 col-sm-6 home-button">
+               <a href="/contact" class="btn btn-default btn-lg">contact me</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // click function that scrolls down
+        $(document).ready(function (){
+
+
+        });
+    </script>
+
+{% endblock %}

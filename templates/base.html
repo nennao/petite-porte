@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>nina builds | online portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="">
+    <link rel="stylesheet" href="{% static "lib/bower_components/bootstrap/dist/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <link rel="stylesheet" href="{% static "lib/font-awesome-4.7.0/css/font-awesome.css" %}">
+
+    <script src="/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+    {% block head_js %}{% endblock %}
+</head>
+<body>
+<!-- NAV -->
+    <nav class="navbar navbar-default navbar-fixed-top"> <!-- todo ?: get navbar menu to close when option clicked -->
+		<div class="container">
+			<div class="nav navbar-header">
+                <div class="logo-shape">
+                    <svg width="130" height="90">
+                    <path d="M0 0L100 0L100 51C83.17  50.33 66.67 53.33 50 60C33.33 66.67 16.83 70 0 70L0 0Z" fill="#fff" id="logo-shape-1"></path>
+                    <path d="M0 0L130 0L130 51C107.67 50.33 86    56.66 65 70C44    83.33 22.33 90 0 90L0 0Z" fill="#fff" id="logo-shape-2"></path>
+                    </svg>
+
+				<a href="/" class="navbar-brand logo">nina builds</a></div>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+
+			<ul id="my-nav" class="nav navbar-nav navbar-right navbar-collapse collapse">
+				<li><a href="/">home</a></li>
+				<li><a href="/portfolio">portfolio</a></li>
+				<li><a href="/about">about</a></li>
+                <li><a href="/contact">contact</a></li>
+			</ul>
+		</div>
+        <div id="nav-line"></div>
+	</nav>
+
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <footer>
+        <div class="footer-copyr"><p>built with django by me<br>© 2017</p></div>
+        <div class="footer-social">
+            <a href="https://linkedin.com/in/nenna-okoye" target="_blank" class="extLink"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/niinaa" target="_blank" class="extLink"><i class="fa fa-github"></i></a>
+        </div>
+    </footer>
+
+</body>
+
