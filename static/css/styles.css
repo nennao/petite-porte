@@ -1,6 +1,8 @@
 /*=- todo: deal wit this mess, find a way to organise and clean it up! */
 body {
-	/*padding-top: 50px;*/
+    min-height: 100vh;
+    padding-bottom: 250px;
+    position: relative;
 }
 
 .whitespace {
@@ -9,6 +11,11 @@ body {
 }
 
 /*====== NAV ======*/
+.navspace {
+    width: 100%;
+    height: 70px;
+}
+
 .navbar {
     background: #fff;
     border: 1px solid transparent;
@@ -57,9 +64,13 @@ body {
 /*====== FOOTER ======*/
 footer {
 	color: #9d9d9d;
-	background-color: #222;
-	padding: 50px 20px 30px;
-	text-align: center;
+    background-color: #222;
+    padding: 40px 20px 40px;
+    text-align: center;
+    margin: 5px 0 0;
+    position: absolute;
+    width: 100%;
+    right: 0; bottom: 0; left: 0;
 }
 footer .footer-social a {
     display: inline-block;
@@ -75,18 +86,20 @@ footer .footer-social a {
 }
 
 
- .extLink:hover {
+.extLink:hover {
     color: #222;
     border: 1px solid transparent;
-    background-size: 400% 150%;
     animation: beacon 2s linear infinite reverse;
     animation-delay: -0.5s;
 }
-@keyframes beacon {
-    0%  {background-position:0 50%}
-    100%{background-position:100% 50%}
+.extLink2:hover{animation-name: beacon2;}
+.extLink3:hover{animation-name: beacon3;}
+.extLink4:hover{animation-name: beacon4;}
 
-}
+@keyframes beacon  {0% {background-position:0 50%}    100%{background-position:100% 50%}}
+@keyframes beacon2 {0% {background-position:100% 50%} 100%{background-position:0 50%}}
+@keyframes beacon3 {0% {background-position:50% 100%} 100%{background-position:50% 0}}
+@keyframes beacon4 {0% {background-position:50% 0}    100%{background-position:50% 100%}}
 /*====================*/
 
 
@@ -136,15 +149,20 @@ footer .footer-social a {
 }
 #scroll-skills {
     position: absolute;
-    bottom: 5px;
+    bottom: 10px;
     width: 100%;
     left: 0;
     font-size: 15px;
     color: rgba(255, 255, 255, 0.75);
     cursor: pointer;
 }
-#scroll-skills i {
-    font-size: 12px;
+.icon-down:before  {content: '\2039'; display: inline-block; transform: rotate(-90deg)}
+#scroll-skills .icon-down {
+    font-family: serif;
+    position: absolute;
+    font-size: 25px;
+    right: 50%;
+    bottom: -20px;
 }
 
 /* --- */
@@ -176,29 +194,30 @@ footer .footer-social a {
     margin-left: auto;
     margin-right: auto;
 }
+.sk-full {display: inline;} .sk-short {display: none; white-space: nowrap;}
 
 /* --- */
 .hpipe {
     margin:50px auto;
     height: 1px;
     border-radius: 50%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(51, 51, 51, 0.6) 50%, rgba(255, 255, 255, 0) 100% );
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(51, 51, 51, 0.3) 30%, rgba(51, 51, 51, 0.4) 50%, rgba(51, 51, 51, 0.3) 70%, rgba(255, 255, 255, 0) 100% );
 }
 
 
-.home-buttons {
-    padding: 5% 3%;
+.home-buttons, .po-buttons {
     text-align: center;
     margin-bottom: 30px;
 }
+.home-buttons {padding: 5% 3%;}
 .home-button {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.home-button a {
+.home-button a, .po-button a {
     font-size: 1.5em;
     width: 50%;
-    min-width: 250px;
+    min-width: 200px;
     max-width: 300px;
     padding-top: 18px;
     padding-bottom: 18px;
@@ -206,28 +225,232 @@ footer .footer-social a {
     border: 1px solid rgba(51, 51, 51, 0.25);
     border-left: none; border-right: none;
 }
-.home-button a:hover {
-    background: linear-gradient(-135deg,
-        #f8f8f8  0%, #f8f8f8 35%,
-        #fbfbfb 43%,
-        #f0f0f0 47%, #f0f0f0 52%,
-        #ffffff 60%,
-        #fafafa 70%, #fdfdfd 100%
-    );
-    background-size: 400% 100%;
-    animation: pulsar 1.5s ease-in-out 1 reverse;
+.home-button a:hover, .po-button a:hover {
+    background: linear-gradient(90deg, rgba(250, 250, 250, 0) 0%, #fafafa 7%, #fafafa 94%, rgba(250, 250, 250, 0) 100%);
+    animation: pulsar 1.3s ease-in-out 1 reverse;
     animation-delay: -0.5s;
 }
-@keyframes pulsar {
-    0%  {background-position:0 50%}
-    100%{background-position:100% 50%}
+.pb2 a:hover {animation-name: pulsar2;}
 
+@keyframes pulsar {
+    1%  {background: linear-gradient(-135deg,
+            #ffffff  0%, #ffffff 35%,
+            #fbfbfb 43%,
+            #f0f0f0 47%, #f0f0f0 55%,
+            #ffffff 65%,
+            #f8f8f8 70%, #fafafa 80%, #fafafa 86%,
+            rgba(250, 250, 250, 0) 89%
+        ) 12% 50% / 400% 100%; }
+    100%{background: linear-gradient(-135deg,
+            #ffffff  0%, #ffffff 35%,
+            #fbfbfb 43%,
+            #f0f0f0 47%, #f0f0f0 55%,
+            #ffffff 65%,
+            #f8f8f8 70%, #fafafa 80%, #fafafa 86%,
+            rgba(250, 250, 250, 0) 89%
+        ) 100% 50% / 400% 100%; }
+}
+
+@keyframes pulsar2 {
+    1%  {background: linear-gradient(-315deg,
+            #ffffff  0%, #ffffff 35%,
+            #fbfbfb 43%,
+            #f0f0f0 47%, #f0f0f0 55%,
+            #ffffff 65%,
+            #f8f8f8 70%, #fafafa 80%, #fafafa 86%,
+            rgba(250, 250, 250, 0) 89%
+        ) 88% 50% / 400% 100%; }
+    100%{background: linear-gradient(-315deg,
+            #ffffff  0%, #ffffff 35%,
+            #fbfbfb 43%,
+            #f0f0f0 47%, #f0f0f0 55%,
+            #ffffff 65%,
+            #f8f8f8 70%, #fafafa 80%, #fafafa 86%,
+            rgba(250, 250, 250, 0) 89%
+        ) 0 50% / 400% 100%; }
 }
 /*==================*/
 
 
+/*====== PORTFOLIO ======*/
+.postgrid h2 {
+    margin: 50px 0 40px;
+    text-align: center;
+}
+.en-cell {
+    padding: 4px 2px 0;
+}
+.en-cell:last-child {
+    padding-bottom: 5px;
+}
+.en-hover {
+    max-width: 420px;
+    margin: auto;
+    position: relative;
+    padding: 10px;
+}
+.en-hover:after {
+    position: absolute;
+    content:"";
+    top:0;
+    left:0;
+    width: 100% ;
+    max-width: 420px;
+    height:100%;
+    opacity:0;
+    background-color: rgba(0,0,0,0);
+    transition: .3s ease;
+    border-radius: 3px;
+    box-shadow: 0 0 25px 5px black inset;
+}
+.en-hover:hover:after {
+    opacity: 0.3;
+    background-color: rgba(0,0,0,0.1);
+}
+.en-cell a:hover, .en-cell a:active {
+    text-decoration: none;
+}
+.en-snap {
+    width: 100%;
+    padding-bottom: 60%;
+    position: relative;
+}
+.en-snap img {
+    opacity: 0.75;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eee;
+}
+.en-cell h4, .en-cell p {
+    color: #777;
+}
+.en-cell h4 {
+    margin: 15px 0 5px;
+}
+
+/* --- */
+.postdetail {
+    padding-top: 100px;
+}
+.po-snap {
+    max-width: 500px;
+    margin: auto;
+    position: relative;
+    padding: 10px 20px;
+}
+.po-snap img {
+    width: 100%;
+    border: 1px solid #f4f4f4;
+}
+.po-snap > a {
+    position: absolute;
+    bottom: 42.5%;
+}
+.po-snap > a:first-of-type {left: -12px; }
+.po-snap > a:last-of-type {right:  30px; }
+
+.po-snap p {
+    font-size: 15px;
+    padding: 5px 0 10px;
+    text-align: justify;
+}
+.po-detail h3 {
+    margin: 10px 0 0;
+}
+.po-detail i {
+    opacity: 0.75;
+    padding-left: 1px;
+}
+.po-button {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.postdetail .icon-next,
+.postdetail .icon-prev,
+.postdetail .icon-prev2 {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-top: -15px;
+    margin-left: -10px;
+    font-family: serif;
+    font-size: 30px;
+    opacity: 0.5;
+}
+
+.po-button .icon-next {right: -49px;} .icon-next:before  {content: '\203a';}
+.po-button .icon-prev  {left: -35px;} .icon-prev:before  {content: '\2039';}
+.po-button .icon-prev2 {left: -47px;} .icon-prev2:before {content: '\00ab';}
+
+.po-snap .icon-next:before {padding: 100% 20px 100% 200%;}
+.po-snap .icon-prev:before {padding: 100% 200% 100% 20px;}
+
+.po-snap .icon-next,
+.po-snap .icon-prev {color: #777; font-size: 40px; margin-top: -20px;}
+
+.po-snap .icon-next:hover,
+.po-snap .icon-prev:hover {color: #aaa;}
+
+.dis{visibility: hidden;}
+
+#gitlink1 {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+#gitlink2 {
+    top: 30px;
+    width: 40px;
+    left: 20px;
+    transform: skew(0, -45deg);
+    position: absolute;
+    height: 40px;
+    cursor: pointer;
+}
+
+#gitlink3 {
+    top: 10px;
+    width: 40px;
+    left: 40px;
+    transform: skew(-45deg, 0deg);
+    position: absolute;
+    height: 40px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.po-snap svg {
+    transition: 0.5s ease-out;
+    position: absolute;
+    top: 11px;
+    border: 0;
+    left: 21px;
+    transform: rotate(-90deg);
+}
+.showDown {opacity: 0.4;}
+.showUp   {opacity: 0.9;}
+
+.octo-arm2{
+    animation:octocat-wave  560ms ease-in-out}
+@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}
+
+/*=======================*/
+
+
 /*====== responsive media queries ======*/
 
+@media screen and (max-width: 479px) {
+    .sk-full {display: none;} .sk-short {display: inline;}
+    .po-snap .icon-next:before {padding: 100% 20px 100% 100%;}
+    .po-snap .icon-prev:before {padding: 100% 100% 100% 20px;}
+    .po-snap > a {  bottom: 5%;}
+    .po-snap > a:last-of-type {right: 10px; }
+}
 
 @media screen and (min-width: 640px) {
 
@@ -237,6 +460,8 @@ footer .footer-social a {
 @media screen and (min-width: 768px) {
 
     /*====== NAV ======*/
+    .navspace {height: 90px;}
+
     .logo-shape {
         padding-left: 20%;
         height: 90px;
@@ -298,15 +523,46 @@ footer .footer-social a {
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .home-button:first-of-type {
-        text-align: left;
-        padding: 20px 0 20px 35px;
-    }
-    .home-button:last-of-type {
-        text-align: right;
-        padding: 20px 35px 20px 0;
-    }
+
+    .home-button:first-of-type {text-align: left; padding: 20px 0 20px 35px;}
+    .home-button:last-of-type {text-align: right; padding: 20px 35px 20px 0;}
     /*=================*/
+
+    /*====== PORTFOLIO ======*/
+    .po-snap2 {
+        max-width: initial;
+        padding: 0;
+        margin: 10px 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        height: 184px;
+        overflow: scroll;
+    }
+    .po-desc p {padding-bottom: 0; margin:0;}
+
+    .po-button a {
+        font-size: 1.7em;
+        width: 95%;
+        min-width: initial;
+        max-width: initial;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .po-button:nth-of-type(2) {text-align: left; padding: 20px 0 20px 85px;}
+    .po-button:last-of-type  {text-align: right; padding: 20px 85px 20px 0;}
+    .po-button:first-of-type {padding: 20px 85px 25px;}
+    .po-button:first-of-type a{ width: 100%; border-radius: 10%;}
+
+    .po-detail h3 {font-size: 24px;}
+
+    @media screen and (max-width: 991px) {  /* todo: <-nested @media tags! do this for anything that needed to change back at 991px width, instead of giving them all the initial property */
+        .postdetail .hpipe{ width: 106%;  position: relative;  right: 3%;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(51, 51, 51, 0.2) 10%, rgba(51, 51, 51, 0.3) 50%, rgba(51, 51, 51, 0.2) 90%, rgba(255, 255, 255, 0) 100% );
+        }
+
+    }
+    /*=======================*/
 }
 
 
@@ -325,10 +581,20 @@ footer .footer-social a {
     .home-button:first-of-type {padding: 20px 0 20px 50px;}
     .home-button:last-of-type  {padding: 20px 50px 20px 0;}
 
+    .po-button:first-of-type {text-align:   left; padding: 20px 13px 20px 39px;}
+    .po-button:nth-of-type(2){text-align: center; padding: 20px 26px;}
+    .po-button:last-of-type  {padding: 20px 39px 20px 13px;}
+    .po-button a {min-width: initial; width: 95%;}
+
     .sk-cell > * {margin-top: 21%;}
     .sk-cell img {width: 45px;}
 
     /*=================*/
+
+    /*====== PORTFOLIO ======*/
+    .po-snap2 {height: 201px;}
+    .po-button:first-of-type a{ width: 95%; border-radius: 15%;}
+    /*=======================*/
 }
 
 
@@ -361,7 +627,14 @@ footer .footer-social a {
     .sk-cell > * {margin-top: 19%; margin-bottom: 4%;}
     .sk-cell img {width: 50px;}
 
+    .postdetail {padding-top: 75px;}
     /*=================*/
+
+    /*====== PORTFOLIO ======*/
+    .po-detail h3 {font-size: 26px;}
+    .po-snap p {font-size: 16px;}
+    .po-snap2 {height: 251px;}
+    /*=======================*/
 }
 
 

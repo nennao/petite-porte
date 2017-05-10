@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <link rel="stylesheet" href="{% static "lib/font-awesome-4.7.0/css/font-awesome.css" %}">
 
-    <script src="/static/lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/static/lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/static/js/scripts.js"></script>
+    <script src="{% static "lib/bower_components/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "lib/bower_components/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/scripts.js" %}"></script>
     {% block head_js %}{% endblock %}
 </head>
 <body>
@@ -38,9 +38,9 @@
 
 			<ul id="my-nav" class="nav navbar-nav navbar-right navbar-collapse collapse">
 				<li><a href="/">home</a></li>
-				<li><a href="/portfolio">portfolio</a></li>
-				<li><a href="/about">about</a></li>
-                <li><a href="/contact">contact</a></li>
+				<li><a href="{% url 'portfolio' %}">portfolio</a></li>
+				<li><a href="{% url 'about' %}">about</a></li>
+                <li><a href="{% url 'contact' %}">contact</a></li>
 			</ul>
 		</div>
         <div id="nav-line"></div>
