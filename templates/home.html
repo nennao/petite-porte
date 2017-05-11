@@ -23,7 +23,7 @@
     </div>
 
     <div id="mySkills" class="container">
-        <h2>Technical Skills</h2>
+        <h2>technical skills</h2>
         <div class="sk-items row">
             {% for skill in skills %}
                <div class="sk-cell col-xs-6 col-sm-4">
@@ -44,20 +44,12 @@
     <div class="container home-buttons">
         <div class="row">
             <div class="col-xs-12 col-sm-6 home-button">
-               <a href="/portfolio" class="btn btn-default btn-lg">view portfolio</a>
+               <a href="{% url 'portfolio' %}" class="btn btn-default btn-lg">view portfolio</a>
             </div>
             <div class="col-xs-12 col-sm-6 home-button">
-               <a href="/about/contact" class="btn btn-default btn-lg">contact me</a>
+               <a href="{% url 'contact' %}" class="btn btn-default btn-lg">contact me</a>
             </div>
         </div>
     </div>
-
-    <script>
-        // click function that scrolls down
-        $(document).ready(function (){
-
-
-        });
-    </script>
 
 {% endblock %}

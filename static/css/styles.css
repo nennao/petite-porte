@@ -3,6 +3,7 @@ body {
     min-height: 100vh;
     padding-bottom: 250px;
     position: relative;
+    font-family: Raleway, sans-serif;
 }
 
 .whitespace {
@@ -29,10 +30,27 @@ body {
     top: 0;
     width: 100px;
     height: initial;
-    margin-left: 25%;
-    padding: 20px 0;
+    margin-left: 20%;
+    padding: 15px 0;
     font-size: 20px;
-    line-height: inherit;
+    line-height: 19px;
+    opacity: 0.9;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-shadow: 1px 1px 1px #777;
+}
+.navbar-default .navbar-brand{ color: #ddd;}
+.navbar-default .navbar-brand:hover{ color: #ddd; text-shadow: 2px 2px 1px #444}
+
+#logoA {
+    font-family: 'Petit Formal Script', cursive;
+}
+#logoB {
+    font-family: 'Kumar One Outline', cursive;
+    padding-left: 8px;
+    font-size: 19px;
 }
 .logo-shape {
     position: absolute;
@@ -111,16 +129,25 @@ footer .footer-social a {
     display: table;
     position: relative;
     text-align: center;
-    background: linear-gradient(#fff 0%, #fff 75px, #777 50%, #222 100%);
+    /*background: linear-gradient(#fff 0%, #fff 75px, #777 50%, #222 100%);*/
+    background-image: url(/static/media/siteimages/homebglg.png);
+    background-size: cover;
+    background-position: top;
 }
 #fs-content {
     display: table-cell;
     position: relative;
     vertical-align: middle;
     color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px -1px 1px #444;
 }
 #fs-content h1 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
     font-size: 45px;
+    text-shadow: -1px -1px 3px #555;
+    color: #f0f0f0;
+    padding-top: 30px;
 }
 .fs-items {
     padding-top: 30px;
@@ -146,6 +173,7 @@ footer .footer-social a {
     position: absolute;
     right: 0;
     top: -25%;
+    text-shadow: none;
 }
 #scroll-skills {
     position: absolute;
@@ -153,9 +181,12 @@ footer .footer-social a {
     width: 100%;
     left: 0;
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.75);
+    color: #fff;
+    opacity: 0.75;
+    transition: opacity 0.5s ease;
     cursor: pointer;
 }
+#scroll-skills:hover {opacity: 1;}
 .icon-down:before  {content: '\2039'; display: inline-block; transform: rotate(-90deg)}
 #scroll-skills .icon-down {
     font-family: serif;
@@ -461,6 +492,10 @@ footer .footer-social a {
 
     /*====== NAV ======*/
     .navspace {height: 90px;}
+    #logoB {
+        font-size: 29px;
+        padding-left: 11px;
+    }
 
     .logo-shape {
         padding-left: 20%;
@@ -479,7 +514,8 @@ footer .footer-social a {
         margin-left: 20%;
         font-size: 30px;
         width: 150px;
-        padding: 23px 0;
+        padding: 18px 0;
+        line-height: 27px;
     }
 
     #nav-line {
@@ -490,7 +526,7 @@ footer .footer-social a {
 
     /*===== HOME ======*/
     #home-fullscreen {
-        background: linear-gradient(#fff 0%, #fff 95px, #777 50%, #222 100%);
+        /*background: linear-gradient(#fff 0%, #fff 95px, #777 50%, #222 100%);*/
     }
     #fs-content h1 {
         font-size: 45px;
@@ -602,11 +638,25 @@ footer .footer-social a {
 
     /*====== NAV ======*/
     .navbar>.container .navbar-brand {
-        font-size: 40px;
+        font-size: 35px;
         width: 200px;
-        padding: 17px 0;
+        padding: 9px 0;
+        line-height: 33px;
     }
+    #logoB {
+        font-size: 33px;
+        padding-left: 14px;
+    }
+
     /*=================*/
+
+    /*====== HOME ======*/
+    #home-fullscreen {
+        background-image: url(/static/media/siteimages/homebgxl.png) ;
+        background-size: cover;
+        background-position: top;
+    }
+    /*===================*/
 }
 
 /*== col-lg ==*/
