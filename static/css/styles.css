@@ -652,7 +652,7 @@ footer .footer-social a {
 
     /*====== HOME ======*/
     #home-fullscreen {
-        background-image: url(/static/media/siteimages/homebgxl.png) ;
+        background-image: url("/static/media/siteimages/homebgxl.png") ;
         background-size: cover;
         background-position: top;
     }
