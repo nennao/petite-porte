@@ -71,3 +71,4 @@ Temporary Items
 scaffolds/
 todos.txt
 ninabuilds/settings_secret.py
+db.json

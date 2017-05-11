@@ -9,17 +9,19 @@
 
         <div class="en-items row">
             {% for entry in entries %}
+                {% if entry.display %}
 
-                <div class="en-cell col-xs-12 col-sm-6 col-md-4">
-                    <a href="/portfolio/{{ entry.port_url }}" class="en-link">
-                    <div class="en-hover">
-                        <div class="en-snap"><img src="{% static "media/dbimages" %}/{{ entry.image_url }}" alt="{{ entry.title }} snap"></div>
-                        <h4>{{ entry.title }}</h4>
-                        <p>{{ entry.lang_main }}</p>
+                    <div class="en-cell col-xs-12 col-sm-6 col-md-4">
+                        <a href="/portfolio/{{ entry.port_url }}" class="en-link">
+                        <div class="en-hover">
+                            <div class="en-snap"><img src="{% static "media/dbimages" %}/{{ entry.image_url }}" alt="{{ entry.title }} snap"></div>
+                            <h4>{{ entry.title }}</h4>
+                            <p>{{ entry.lang_main }}</p>
+                        </div>
+                        </a>
                     </div>
-                    </a>
-                </div>
 
+                {% endif %}
             {% endfor %}
         </div>
 

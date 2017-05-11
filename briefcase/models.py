@@ -29,5 +29,8 @@ class Entry(models.Model):
     cat_col1 = models.CharField(max_length=127, default='#989898')
     cat_col2 = models.CharField(max_length=127, default='#ffffff')
 
+    # active display or not
+    display = models.BooleanField(default=False)
+
     def __unicode__(self):
         return self.title

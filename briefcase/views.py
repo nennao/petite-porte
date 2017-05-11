@@ -25,11 +25,12 @@ def post_detail(request, p_url):
     post is not found. 
     Then proceed to get the urls for the prev and next pages in portfolio
     """
-    entry = get_object_or_404(Entry, port_url=p_url)
+    all_entries = Entry.objects.filter(display=True)
+    entry = get_object_or_404(all_entries, port_url=p_url)
     entry.views += 1
     entry.save()
 
-    entries = Entry.objects.order_by('title')
+    entries = all_entries.order_by('title')
     entry_urls = []
     for url in entries:
         entry_urls.append(url.port_url)
