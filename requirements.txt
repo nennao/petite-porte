@@ -13,3 +13,4 @@ six==1.10.0
 whitenoise==3.3.0
 gunicorn==19.4
 dj-database-url==0.2.1
+mysql-python==1.2.5
