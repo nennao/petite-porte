@@ -29,7 +29,10 @@ else:
     SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if DEV:
+    DEBUG = True
+else:
+    DEBUG = os.environ.get('DEBUG_ON')
 
 ALLOWED_HOSTS = ['127.0.0.1', 'ninabuilds.herokuapp.com']
 
@@ -145,9 +148,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
 
 
 SITE_ID = 1  # should match the site id in the django_site db table.

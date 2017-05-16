@@ -42,7 +42,7 @@ body {
     text-shadow: 1px 1px 1px #777;
 }
 .navbar-default .navbar-brand{ color: #ddd;}
-.navbar-default .navbar-brand:hover{ color: #ddd; text-shadow: 2px 2px 1px #444}
+.navbar-default .navbar-brand:hover{ color: #ddd; text-shadow: 1px 1px 1px #444}
 
 #logoA {
     font-family: 'Petit Formal Script', cursive;

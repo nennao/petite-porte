@@ -3,14 +3,27 @@
 
 $(document).ready(function (){
 
+// scroll activate #nav-line
+    if (location.pathname === '/'){
+        $(document).scroll(function() {
+            var scroll_start = $(this).scrollTop();
+            if(scroll_start > ($("#mySkills").offset().top / 2)) {
+                $("#nav-line").removeClass('dis');
+            } else {
+                $('#nav-line').addClass('dis');
+            }
+        });
+    }
+    else {$("#nav-line").removeClass('dis');}
+
 
 // 'click to scroll' for the skills section
 
     var wholePage = $('html, body');
-    var goHere = $('#mySkills');
+    var goSkills = $('#mySkills');
     $("#scroll-skills").click(function (){
         wholePage.animate({
-            scrollTop: goHere.offset().top - wholePage.offset().top + wholePage.scrollTop() - 25
+            scrollTop: goSkills.offset().top - wholePage.offset().top + wholePage.scrollTop() - 25
         }, "slow");
     });
 
@@ -86,6 +99,101 @@ $(document).ready(function (){
         if (!git1 && !git2 && !git3){
             $('.octo-arm').removeClass('octo-arm2');    $(".po-snap svg").removeClass('showUp');}
     });
+
+
+
+    // click to open the about panels
+
+    function getHere(item){
+        var jItem = $(item);
+        if (jItem.length !== 0){
+            return jItem.offset().top - wholePage.offset().top + wholePage.scrollTop() - 50
+        }
+    }
+
+    // are panels open or closed
+    function isOpen(panel){
+        return $(panel).hasClass("am-max");
+    }
+    function isClosed(panel){
+        return $(panel).hasClass("am-min");
+    }
+
+    function openPanel(panel, svg){
+        $(panel).removeClass("am-min").addClass("am-max").addClass("topMarg");
+        $(svg).addClass("am-off");
+    }
+
+    function closePanel(panel, svg) {
+        $(svg).removeClass("am-off");
+        $(panel).removeClass("topMarg").removeClass("am-max").addClass("am-min");
+    }
+
+    var plate1 = ".am-plate1";
+    var plate2 = ".am-plate2";
+    var goHere1 = getHere(plate1);
+    var goHere2 = getHere(plate2);
+
+
+    $(plate1).click(function () {
+
+        if (isClosed(plate1)) {
+            $(".aboutme").hide().fadeIn(1000);
+            wholePage.animate({scrollTop: goHere1}, 800);
+            openPanel(plate1, ".svg1b");
+
+            if (isOpen(plate2)) {
+                closePanel(plate2, ".svg2b");
+            }
+        }
+        else {
+            if ($("#plate-close1:hover").length) {
+                $(".aboutme").hide().fadeIn(1000);
+                wholePage.animate({scrollTop: 0}, 800);
+                closePanel(plate1, ".svg1b");
+            }
+        }
+    });
+
+
+    $(plate2).click(function () {
+
+        if (isClosed(plate2)) {
+            $(".aboutme").hide().fadeIn(1000);
+            wholePage.animate({scrollTop: goHere2}, 800);
+            openPanel(plate2, ".svg2b");
+
+            if (isOpen(plate1)) {
+                closePanel(plate1, ".svg1b", plate2);
+            }
+        }
+        else {
+            if ($("#plate-close2:hover").length){
+                $(".aboutme").hide().fadeIn(1000);
+                wholePage.animate({scrollTop: 0}, 800);
+                closePanel(plate2, ".svg2b", "#plate-close2");
+            }
+        }
+    });
+
+    //open contact panel upon URL
+    var geturl = $(location).attr("href");
+    if (geturl.match("contact/$") || geturl.match("contact$")){
+        $(".aboutme").hide().fadeIn(1000);
+        wholePage.animate({scrollTop: goHere2}, 800);
+        openPanel(plate2, ".svg2b");
+
+        $("#plate-close2").click(function () {
+            $(location).attr('href', '/about/');
+        });
+        $("#plate-close1").click(function () {
+            $(location).attr('href', '/about/');
+        });
+    }
+
+    // fade ins
+    $(".svg1").fadeIn(750); $(".svg2").fadeIn(750);
+
 
 });
 
