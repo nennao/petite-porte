@@ -1,5 +1,5 @@
 
-// todo: tidy this messy code up! it works, but hope one day to implement all angles and all directions
+
 
 $(document).ready(function (){
 
