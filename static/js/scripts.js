@@ -1,6 +1,3 @@
-
-// todo: tidy this messy code up! it works, but hope one day to implement all angles and all directions
-
 $(document).ready(function (){
 
 // scroll activate #nav-line
@@ -37,8 +34,8 @@ $(document).ready(function (){
 
         if (theta < 45 || theta > 135){
             bgSize = "150% 400%";
-            if (coin){ $(this).addClass("extLink4"); if (theta < 45){theta += 180;}}
-            else { $(this).addClass("extLink3"); if (theta > 135){theta += 180;}}
+            if (coin){ $(this).addClass("extLink4"); if (theta < 45) theta += 180;}
+            else { $(this).addClass("extLink3"); if (theta > 135) theta += 180;}
         }
         else { if (coin){ $(this).addClass("extLink2"); theta += 180;}}
 
