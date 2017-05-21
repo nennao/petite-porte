@@ -32,7 +32,11 @@ else:
 if DEV:
     DEBUG = True
 else:
-    DEBUG = os.environ.get('DEBUG_ON')
+    DEBUG_ON = os.environ.get('DEBUG_ON')
+    if DEBUG_ON == 'True':
+        DEBUG = True
+    elif DEBUG_ON == 'False':
+        DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'ninabuilds.herokuapp.com']
 
